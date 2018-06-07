@@ -7,42 +7,47 @@ import static org.junit.Assert.assertFalse;
 public class HomeAssistantTest {
     HomeAssistant homeAssistant;
     AirConditioner airConditioner;
+    Television tv;
 
     @Before
     public void setUp(){
         homeAssistant = new HomeAssistant();
         airConditioner = new AirConditioner();
-        homeAssistant.addAirConditioner(airConditioner);
+        tv = new Television();
+        ACOnCommand acOnCommand = new ACOnCommand(airConditioner);
+        homeAssistant.addCommand("TurnOnAc",acOnCommand);
+        ACOffCommand acOffCommand = new ACOffCommand(airConditioner);
+        homeAssistant.addCommand("TurnOffAc",acOffCommand);
+        TVOnCommand tvOnCommand = new TVOnCommand(tv);
+        homeAssistant.addCommand("OnTv",tvOnCommand);
+        TvOffCommand tvOffCommand = new TvOffCommand(tv);
+        homeAssistant.addCommand("OffTv",tvOffCommand);
     }
     @Test
     public void homeAssistantShouldSwitchOnTheAC(){
-        homeAssistant.doCommand("TurnOnAc");
+
+        homeAssistant.listen("TurnOnAc");
 
         assertTrue(airConditioner.isOn());
     }
-
     @Test
     public void homeAssistantShouldSwitchOffTheAc() {
-        homeAssistant.doCommand("TurnOffAc");
+        homeAssistant.listen("TurnOffAc");
 
         assertFalse(airConditioner.isOn());
     }
 
     @Test
     public void homeAssistantShouldSwitchOnTheTv() {
-        Television television = new Television();
-        homeAssistant.addTelevision(television);
-        homeAssistant.doCommand("OnTv");
+        homeAssistant.listen("OnTv");
 
-        assertTrue(television.isOn());
+        assertTrue(tv.isOn());
     }
 
     @Test
     public void homeAssistantShouldSwitchOffTheTv() {
-        Television television = new Television();
-        homeAssistant.addTelevision(television);
-        homeAssistant.doCommand("OffTv");
+        homeAssistant.listen("OffTv");
 
-        assertFalse(television.isOn());
+        assertFalse(tv.isOn());
     }
 }

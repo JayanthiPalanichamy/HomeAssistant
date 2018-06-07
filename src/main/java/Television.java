@@ -9,11 +9,11 @@ public class Television {
         return onStatus;
     }
 
-    public void On(){
+    public void on(){
         onStatus = true;
     }
 
-    public void Off(){
+    public void off(){
         onStatus = false;
     }
 }

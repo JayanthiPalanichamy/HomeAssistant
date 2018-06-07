@@ -1,20 +1,23 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class HomeAssistant {
 
-    private AirConditioner airConditioner;
-    private Television television;
+    HashMap<String , Command> deviceInstructionMap;
 
-    public void addAirConditioner(AirConditioner airConditioner) {
-        this.airConditioner= airConditioner;
+    public HomeAssistant() {
+        deviceInstructionMap = new HashMap<>();
     }
 
-    public void doCommand(String command) {
-        if("TurnOnAc".equals(command)) airConditioner.turnOn();
-        else if("TurnOffAc".equals(command)) airConditioner.turnOff();
-        else if("OnTv".equals(command)) television.On();
-        else if("OffTv".equals(command)) television.Off();
+    public void listen(String instruction) {
+        Command command = deviceInstructionMap.get(instruction);
+        command.execute();
+
     }
 
-    public void addTelevision(Television television) {
-        this.television = television;
+
+    public void addCommand(String instruction,Command command) {
+        deviceInstructionMap.put(instruction,command);
     }
 }
