@@ -11,7 +11,13 @@ public class HomeAssistant {
         oppositeInstructionMap = new HashMap<>();
     }
 
-
+    public  void setOppositeInstruction(String instruction, String oppositeInstruction) {
+        if(deviceInstructionMap.containsKey(instruction) && deviceInstructionMap.containsKey(oppositeInstruction)) {
+            oppositeInstructionMap.put(instruction,oppositeInstruction);
+            oppositeInstructionMap.put(oppositeInstruction,instruction);
+        }
+        else throw new CommandNotFoundException();
+    }
 
     public void listen(String instruction) {
         Command command = deviceInstructionMap.get(instruction);
@@ -20,11 +26,8 @@ public class HomeAssistant {
     }
 
 
-    public void setupCommand(String instruction, Command command,String oppositeInstruction,Command oppositeCommand) {
+    public void setupCommand(String instruction, Command command) {
         deviceInstructionMap.put(instruction, command);
-        deviceInstructionMap.put(oppositeInstruction,oppositeCommand);
-        oppositeInstructionMap.put(instruction,oppositeInstruction);
-        oppositeInstructionMap.put(oppositeInstruction,instruction);
     }
 
     public void undo() {

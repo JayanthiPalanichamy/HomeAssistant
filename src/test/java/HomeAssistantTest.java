@@ -25,11 +25,18 @@ public class HomeAssistantTest {
         FanOffCommand fanOffCommand = new FanOffCommand(fan);
         FanIncreaseSpeedCommand fanIncreaseSpeedCommand = new FanIncreaseSpeedCommand(fan);
         FanDecreaseSpeedCommand fanDecreaseSpeedCommand = new FanDecreaseSpeedCommand(fan);
-        homeAssistant.setupCommand("TurnOnAc", acOnCommand,"TurnOffAc",acOffCommand);
-        homeAssistant.setupCommand("OnTv", tvOnCommand,"OffTv",tvOffCommand);
-        homeAssistant.setupCommand("SwitchOnFan", fanOnCommand,"SwitchOffFan",fanOffCommand);
-        homeAssistant.setupCommand("IncreaseFanSpeed", fanIncreaseSpeedCommand,"DecreaseFanSpeed", fanDecreaseSpeedCommand);
-
+        homeAssistant.setupCommand("TurnOnAc", acOnCommand);
+        homeAssistant.setupCommand("TurnOffAc",acOffCommand);
+        homeAssistant.setupCommand("OnTv", tvOnCommand);
+        homeAssistant.setupCommand("OffTv",tvOffCommand);
+        homeAssistant.setupCommand("SwitchOnFan", fanOnCommand);
+        homeAssistant.setupCommand("SwitchOffFan",fanOffCommand);
+        homeAssistant.setupCommand("IncreaseFanSpeed", fanIncreaseSpeedCommand);
+        homeAssistant.setupCommand("DecreaseFanSpeed", fanDecreaseSpeedCommand);
+        homeAssistant.setOppositeInstruction("TurnOnAc","TurnOffAc");
+        homeAssistant.setOppositeInstruction("OnTv","OffTv");
+        homeAssistant.setOppositeInstruction("SwitchOnFan","SwitchOffFan");
+        homeAssistant.setOppositeInstruction("IncreaseFanSpeed","DecreaseFanSpeed");
     }
 
     @Test
