@@ -18,17 +18,18 @@ public class HomeAssistantTest {
         tv = new Television();
         fan = new Fan();
         ACOnCommand acOnCommand = new ACOnCommand(airConditioner);
-        homeAssistant.addCommand("TurnOnAc", acOnCommand);
         ACOffCommand acOffCommand = new ACOffCommand(airConditioner);
-        homeAssistant.addCommand("TurnOffAc", acOffCommand);
         TVOnCommand tvOnCommand = new TVOnCommand(tv);
-        homeAssistant.addCommand("OnTv", tvOnCommand);
         TvOffCommand tvOffCommand = new TvOffCommand(tv);
-        homeAssistant.addCommand("OffTv", tvOffCommand);
+        FanOnCommand fanOnCommand = new FanOnCommand(fan);
+        FanOffCommand fanOffCommand = new FanOffCommand(fan);
         FanIncreaseSpeedCommand fanIncreaseSpeedCommand = new FanIncreaseSpeedCommand(fan);
-        homeAssistant.addCommand("IncreaseFanSpeed", fanIncreaseSpeedCommand);
         FanDecreaseSpeedCommand fanDecreaseSpeedCommand = new FanDecreaseSpeedCommand(fan);
-        homeAssistant.addCommand("DecreaseFanSpeed", fanDecreaseSpeedCommand);
+        homeAssistant.setupCommand("TurnOnAc", acOnCommand,"TurnOffAc",acOffCommand);
+        homeAssistant.setupCommand("OnTv", tvOnCommand,"OffTv",tvOffCommand);
+        homeAssistant.setupCommand("SwitchOnFan", fanOnCommand,"SwitchOffFan",fanOffCommand);
+        homeAssistant.setupCommand("IncreaseFanSpeed", fanIncreaseSpeedCommand,"DecreaseFanSpeed", fanDecreaseSpeedCommand);
+
     }
 
     @Test
@@ -62,8 +63,6 @@ public class HomeAssistantTest {
 
     @Test
     public void homeAssistantShouldSwitchOnFan() {
-        FanOnCommand fanOnCommand = new FanOnCommand(fan);
-        homeAssistant.addCommand("SwitchOnFan", fanOnCommand);
         homeAssistant.listen("SwitchOnFan");
 
         assertTrue(fan.isOn());
@@ -71,8 +70,6 @@ public class HomeAssistantTest {
 
     @Test
     public void homeAssistantShouldSwitchOffFan() {
-        FanOffCommand fanOffCommand = new FanOffCommand(fan);
-        homeAssistant.addCommand("SwitchOffFan", fanOffCommand);
         homeAssistant.listen("SwitchOffFan");
 
         assertFalse(fan.isOn());
@@ -93,5 +90,11 @@ public class HomeAssistantTest {
         assertEquals(1, fan.getSpeed());
     }
 
+    @Test
+    public void homeAssistantShouldUndoThePreviousTask() {
+        homeAssistant.listen("SwitchOnFan");
+        homeAssistant.undo();
 
+        assertFalse(fan.isOn());
+    }
 }
