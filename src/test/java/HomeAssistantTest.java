@@ -100,8 +100,24 @@ public class HomeAssistantTest {
     @Test
     public void homeAssistantShouldUndoThePreviousTask() {
         homeAssistant.listen("SwitchOnFan");
+
         homeAssistant.undo();
 
         assertFalse(fan.isOn());
     }
+
+    @Test
+    public void homeAssistantShouldUndoMultiplePreviousTask(){
+        homeAssistant.listen("OnTv");
+        homeAssistant.listen("IncreaseFanSpeed");
+        homeAssistant.listen("IncreaseFanSpeed");
+
+        homeAssistant.undo();
+        homeAssistant.undo();
+
+        assertEquals(1,fan.getSpeed());
+        assertTrue(tv.isOn());
+    }
+
+
 }
