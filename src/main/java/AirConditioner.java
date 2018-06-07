@@ -12,11 +12,11 @@ public class AirConditioner {
         return onStatus;
     }
 
-    public void turnOn(){
+    public void turnOn() {
         onStatus = true;
     }
 
-    public void turnOff(){
+    public void turnOff() {
         onStatus = false;
     }
 }

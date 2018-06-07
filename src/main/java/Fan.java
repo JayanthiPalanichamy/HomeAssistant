@@ -8,7 +8,7 @@ public class Fan {
     }
 
     public void turnOn() {
-        onStatus=true;
+        onStatus = true;
     }
 
     public boolean isOn() {
@@ -20,8 +20,7 @@ public class Fan {
     }
 
     public void increaseSpeed() {
-        if(speed<5) speed++;
-
+        if (speed < 5) speed++;
     }
 
     public int getSpeed() {
@@ -29,6 +28,6 @@ public class Fan {
     }
 
     public void decreaseSpeed() {
-        if(speed >1) speed--;
+        if (speed > 1) speed--;
     }
 }

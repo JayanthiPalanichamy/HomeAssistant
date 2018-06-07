@@ -6,13 +6,14 @@ import static org.junit.Assert.assertTrue;
 
 public class AirConditionerTest {
     AirConditioner airConditioner;
+
     @Before
-    public void setUp(){
+    public void setUp() {
         airConditioner = new AirConditioner();
     }
 
     @Test
-    public void returnTrueWhenAcIsTurnedOn(){
+    public void returnTrueWhenAcIsTurnedOn() {
         airConditioner.turnOn();
         assertTrue(airConditioner.isOn());
     }

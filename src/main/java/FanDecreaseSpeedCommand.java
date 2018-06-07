@@ -1,4 +1,4 @@
-public class FanDecreaseSpeedCommand implements Command{
+public class FanDecreaseSpeedCommand implements Command {
     private final Fan fan;
 
     public FanDecreaseSpeedCommand(Fan fan) {

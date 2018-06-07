@@ -4,7 +4,7 @@ import java.util.List;
 
 public class HomeAssistant {
 
-    HashMap<String , Command> deviceInstructionMap;
+    HashMap<String, Command> deviceInstructionMap;
 
     public HomeAssistant() {
         deviceInstructionMap = new HashMap<>();
@@ -17,7 +17,7 @@ public class HomeAssistant {
     }
 
 
-    public void addCommand(String instruction,Command command) {
-        deviceInstructionMap.put(instruction,command);
+    public void addCommand(String instruction, Command command) {
+        deviceInstructionMap.put(instruction, command);
     }
 }

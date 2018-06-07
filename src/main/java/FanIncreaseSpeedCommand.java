@@ -1,9 +1,8 @@
-public class FanIncreaseSpeedCommand implements Command{
+public class FanIncreaseSpeedCommand implements Command {
     private final Fan fan;
 
     public FanIncreaseSpeedCommand(Fan fan) {
-        this.fan= fan;
-
+        this.fan = fan;
     }
 
     @Override

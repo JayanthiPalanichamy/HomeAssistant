@@ -6,13 +6,14 @@ import static org.junit.Assert.assertTrue;
 
 public class TelevisionTest {
     Television television;
+
     @Before
-    public void setUp(){
+    public void setUp() {
         television = new Television();
     }
 
     @Test
-    public void returnTrueWhenTvIsTurnedOn(){
+    public void returnTrueWhenTvIsTurnedOn() {
         television.on();
         assertTrue(television.isOn());
     }

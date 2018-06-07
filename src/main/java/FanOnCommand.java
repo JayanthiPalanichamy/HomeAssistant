@@ -1,4 +1,4 @@
-public class FanOnCommand implements  Command{
+public class FanOnCommand implements Command {
     private final Fan fan;
 
     public FanOnCommand(Fan fan) {
