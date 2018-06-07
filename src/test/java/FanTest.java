@@ -29,8 +29,35 @@ public class FanTest {
     @Test
     public void returnIncreasedSpeedWhenIncreaseSpeedIsCalled(){
         fan.increaseSpeed();
-        assertEquals(2,fan.getSpeed());
 
+        assertEquals(2,fan.getSpeed());
     }
 
+    @Test
+    public void returnDecreasedSpeedWhenDecreaseSpeedIsCalled() {
+        fan.increaseSpeed();
+        fan.decreaseSpeed();
+
+        assertEquals(1,fan.getSpeed());
+    }
+
+    @Test
+    public void shouldNotIncreaseSpeedAboveFive(){
+        fan.increaseSpeed();
+        fan.increaseSpeed();
+        fan.increaseSpeed();
+        fan.increaseSpeed();
+        fan.increaseSpeed();
+        fan.increaseSpeed();
+        assertEquals(5,fan.getSpeed());
+    }
+
+    @Test
+    public void shouldNotDecreaseBelowOne(){
+        fan.decreaseSpeed();
+        fan.decreaseSpeed();
+        fan.decreaseSpeed();
+
+        assertEquals(1,fan.getSpeed());
+    }
 }

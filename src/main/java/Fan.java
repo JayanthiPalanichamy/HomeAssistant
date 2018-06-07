@@ -20,10 +20,15 @@ public class Fan {
     }
 
     public void increaseSpeed() {
-        speed++;
+        if(speed<5) speed++;
+
     }
 
     public int getSpeed() {
         return speed;
+    }
+
+    public void decreaseSpeed() {
+        if(speed >1) speed--;
     }
 }
