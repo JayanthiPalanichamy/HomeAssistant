@@ -2,6 +2,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class FanTest {
     Fan fan;
@@ -11,7 +13,6 @@ public class FanTest {
     }
     @Test
     public void returnTrueWhenFanIsTurnedOn(){
-        Fan fan = new Fan();
         fan.turnOn();
 
         assertTrue(fan.isOn());
@@ -19,6 +20,17 @@ public class FanTest {
 
     @Test
     public void returnFalseWhenFanIsTurnedOff() {
+        fan.turnOn();
+        fan.turnOff();
+
+        assertFalse(fan.isOn());
+    }
+
+    @Test
+    public void returnIncreasedSpeedWhenIncreaseSpeedIsCalled(){
+        fan.increaseSpeed();
+        assertEquals(2,fan.getSpeed());
 
     }
+
 }
