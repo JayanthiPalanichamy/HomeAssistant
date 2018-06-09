@@ -1,1 +1,1 @@
-Creating a home assistant which can control AC,com.thoughtworks.iwp.appliance.Fan,Light,Fans.Home assistant can only understand our instruction.
+Creating a home assistant which can control AC,Fan,Light.Home assistant can only understand our instruction.
