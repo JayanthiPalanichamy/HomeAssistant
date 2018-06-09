@@ -39,10 +39,6 @@ public class HomeAssistantTest {
         homeAssistant.setupCommand("SwitchOffFan", fanOffCommand);
         homeAssistant.setupCommand("IncreaseFanSpeed", fanIncreaseSpeedCommand);
         homeAssistant.setupCommand("DecreaseFanSpeed", fanDecreaseSpeedCommand);
-        homeAssistant.setOppositeInstruction("TurnOnAc", "TurnOffAc");
-        homeAssistant.setOppositeInstruction("OnTv", "OffTv");
-        homeAssistant.setOppositeInstruction("SwitchOnFan", "SwitchOffFan");
-        homeAssistant.setOppositeInstruction("IncreaseFanSpeed", "DecreaseFanSpeed");
     }
 
     @Test
@@ -107,7 +103,7 @@ public class HomeAssistantTest {
     public void homeAssistantShouldUndoThePreviousTask() {
         homeAssistant.listen("SwitchOnFan");
 
-        homeAssistant.undo();
+        homeAssistant.listen("undo");
 
         assertFalse(fan.isOn());
     }
@@ -118,8 +114,8 @@ public class HomeAssistantTest {
         homeAssistant.listen("IncreaseFanSpeed");
         homeAssistant.listen("IncreaseFanSpeed");
 
-        homeAssistant.undo();
-        homeAssistant.undo();
+        homeAssistant.listen("undo");
+        homeAssistant.listen("undo");
 
         assertEquals(1, fan.getSpeed());
         assertTrue(tv.isOn());

@@ -11,4 +11,9 @@ public class FanOffCommand implements Command {
     public void execute() {
         fan.turnOff();
     }
+
+    @Override
+    public void undo() {
+        fan.turnOff();
+    }
 }

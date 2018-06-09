@@ -15,4 +15,10 @@ public class FanOnCommand implements Command {
     public void execute() {
         fan.turnOn();
     }
+
+    @Override
+    public void undo() {
+        fan.turnOff();
+
+    }
 }

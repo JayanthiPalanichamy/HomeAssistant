@@ -13,4 +13,9 @@ public class FanIncreaseSpeedCommand implements Command {
     public void execute() {
         fan.increaseSpeed();
     }
+
+    @Override
+    public void undo() {
+        fan.decreaseSpeed();
+    }
 }
