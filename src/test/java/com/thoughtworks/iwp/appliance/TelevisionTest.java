@@ -17,12 +17,14 @@ public class TelevisionTest {
     @Test
     public void returnTrueWhenTvIsTurnedOn() {
         television.on();
+
         assertTrue(television.isOn());
     }
 
     @Test
     public void returnFalseWhenTvIsTurnedOff() {
         television.off();
+
         assertFalse(television.isOn());
     }
 }

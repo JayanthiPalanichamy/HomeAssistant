@@ -53,6 +53,7 @@ public class FanTest {
         fan.increaseSpeed();
         fan.increaseSpeed();
         fan.increaseSpeed();
+
         assertEquals(5, fan.getSpeed());
     }
 

@@ -102,7 +102,6 @@ public class HomeAssistantTest {
     @Test
     public void homeAssistantShouldUndoThePreviousTask() {
         homeAssistant.listen("SwitchOnFan");
-
         homeAssistant.listen("undo");
 
         assertFalse(fan.isOn());

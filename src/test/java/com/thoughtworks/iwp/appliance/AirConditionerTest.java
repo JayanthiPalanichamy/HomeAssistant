@@ -17,12 +17,14 @@ public class AirConditionerTest {
     @Test
     public void returnTrueWhenAcIsTurnedOn() {
         airConditioner.turnOn();
+
         assertTrue(airConditioner.isOn());
     }
 
     @Test
     public void returnFalseWhenAcIsTurnedOff() {
         airConditioner.turnOff();
+
         assertFalse(airConditioner.isOn());
     }
 }
