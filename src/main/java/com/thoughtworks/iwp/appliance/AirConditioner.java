@@ -1,7 +1,10 @@
-public class Television {
+package com.thoughtworks.iwp.appliance;
+
+public class AirConditioner {
+
     private boolean onStatus;
 
-    public Television() {
+    public AirConditioner() {
         this.onStatus = false;
     }
 
@@ -9,11 +12,11 @@ public class Television {
         return onStatus;
     }
 
-    public void on() {
+    public void turnOn() {
         onStatus = true;
     }
 
-    public void off() {
+    public void turnOff() {
         onStatus = false;
     }
 }

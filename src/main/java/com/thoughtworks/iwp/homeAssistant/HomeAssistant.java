@@ -1,10 +1,14 @@
+package com.thoughtworks.iwp.homeAssistant;
+
+import com.thoughtworks.iwp.commands.Command;
+
 import java.util.HashMap;
 import java.util.Stack;
 
 public class HomeAssistant {
 
     private HashMap<String, Command> deviceInstructionMap;
-    private HashMap<String,String> oppositeInstructionMap;
+    private HashMap<String, String> oppositeInstructionMap;
     private Stack<String> lastExecutedInstructionStack;
 
     public HomeAssistant() {
@@ -13,12 +17,11 @@ public class HomeAssistant {
         lastExecutedInstructionStack = new Stack<>();
     }
 
-    public  void setOppositeInstruction(String instruction, String oppositeInstruction) {
-        if(deviceInstructionMap.containsKey(instruction) && deviceInstructionMap.containsKey(oppositeInstruction)) {
-            oppositeInstructionMap.put(instruction,oppositeInstruction);
-            oppositeInstructionMap.put(oppositeInstruction,instruction);
-        }
-        else throw new CommandNotFoundException();
+    public void setOppositeInstruction(String instruction, String oppositeInstruction) {
+        if (deviceInstructionMap.containsKey(instruction) && deviceInstructionMap.containsKey(oppositeInstruction)) {
+            oppositeInstructionMap.put(instruction, oppositeInstruction);
+            oppositeInstructionMap.put(oppositeInstruction, instruction);
+        } else throw new CommandNotFoundException();
     }
 
     public void listen(String instruction) {
@@ -33,7 +36,9 @@ public class HomeAssistant {
     }
 
     public void undo() {
-        Command command = deviceInstructionMap.get(oppositeInstructionMap.get(lastExecutedInstructionStack.pop()));
+        Command command = deviceInstructionMap
+                .get(oppositeInstructionMap
+                        .get(lastExecutedInstructionStack.pop()));
         command.execute();
     }
 }

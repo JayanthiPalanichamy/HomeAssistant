@@ -1,3 +1,5 @@
+package com.thoughtworks.iwp.appliance;
+
 import org.junit.Before;
 import org.junit.Test;
 

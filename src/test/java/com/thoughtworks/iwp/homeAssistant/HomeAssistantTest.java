@@ -1,3 +1,9 @@
+package com.thoughtworks.iwp.homeAssistant;
+
+import com.thoughtworks.iwp.appliance.AirConditioner;
+import com.thoughtworks.iwp.appliance.Fan;
+import com.thoughtworks.iwp.appliance.Television;
+import com.thoughtworks.iwp.commands.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,17 +32,17 @@ public class HomeAssistantTest {
         FanIncreaseSpeedCommand fanIncreaseSpeedCommand = new FanIncreaseSpeedCommand(fan);
         FanDecreaseSpeedCommand fanDecreaseSpeedCommand = new FanDecreaseSpeedCommand(fan);
         homeAssistant.setupCommand("TurnOnAc", acOnCommand);
-        homeAssistant.setupCommand("TurnOffAc",acOffCommand);
+        homeAssistant.setupCommand("TurnOffAc", acOffCommand);
         homeAssistant.setupCommand("OnTv", tvOnCommand);
-        homeAssistant.setupCommand("OffTv",tvOffCommand);
+        homeAssistant.setupCommand("OffTv", tvOffCommand);
         homeAssistant.setupCommand("SwitchOnFan", fanOnCommand);
-        homeAssistant.setupCommand("SwitchOffFan",fanOffCommand);
+        homeAssistant.setupCommand("SwitchOffFan", fanOffCommand);
         homeAssistant.setupCommand("IncreaseFanSpeed", fanIncreaseSpeedCommand);
         homeAssistant.setupCommand("DecreaseFanSpeed", fanDecreaseSpeedCommand);
-        homeAssistant.setOppositeInstruction("TurnOnAc","TurnOffAc");
-        homeAssistant.setOppositeInstruction("OnTv","OffTv");
-        homeAssistant.setOppositeInstruction("SwitchOnFan","SwitchOffFan");
-        homeAssistant.setOppositeInstruction("IncreaseFanSpeed","DecreaseFanSpeed");
+        homeAssistant.setOppositeInstruction("TurnOnAc", "TurnOffAc");
+        homeAssistant.setOppositeInstruction("OnTv", "OffTv");
+        homeAssistant.setOppositeInstruction("SwitchOnFan", "SwitchOffFan");
+        homeAssistant.setOppositeInstruction("IncreaseFanSpeed", "DecreaseFanSpeed");
     }
 
     @Test
@@ -107,7 +113,7 @@ public class HomeAssistantTest {
     }
 
     @Test
-    public void homeAssistantShouldUndoMultiplePreviousTask(){
+    public void homeAssistantShouldUndoMultiplePreviousTask() {
         homeAssistant.listen("OnTv");
         homeAssistant.listen("IncreaseFanSpeed");
         homeAssistant.listen("IncreaseFanSpeed");
@@ -115,9 +121,7 @@ public class HomeAssistantTest {
         homeAssistant.undo();
         homeAssistant.undo();
 
-        assertEquals(1,fan.getSpeed());
+        assertEquals(1, fan.getSpeed());
         assertTrue(tv.isOn());
     }
-
-
 }

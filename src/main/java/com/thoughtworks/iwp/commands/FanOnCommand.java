@@ -1,3 +1,8 @@
+package com.thoughtworks.iwp.commands;
+
+
+import com.thoughtworks.iwp.appliance.Fan;
+
 public class FanOnCommand implements Command {
     private final Fan fan;
 

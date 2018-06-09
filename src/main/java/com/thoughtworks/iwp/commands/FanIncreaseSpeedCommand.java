@@ -1,3 +1,7 @@
+package com.thoughtworks.iwp.commands;
+
+import com.thoughtworks.iwp.appliance.Fan;
+
 public class FanIncreaseSpeedCommand implements Command {
     private final Fan fan;
 

@@ -1,4 +1,6 @@
+package com.thoughtworks.iwp.commands;
 
+import com.thoughtworks.iwp.appliance.AirConditioner;
 
 public class ACOnCommand implements Command {
     AirConditioner airConditioner;

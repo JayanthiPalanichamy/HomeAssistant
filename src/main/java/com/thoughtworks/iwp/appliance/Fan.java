@@ -1,3 +1,5 @@
+package com.thoughtworks.iwp.appliance;
+
 public class Fan {
     private boolean onStatus;
     private int speed;

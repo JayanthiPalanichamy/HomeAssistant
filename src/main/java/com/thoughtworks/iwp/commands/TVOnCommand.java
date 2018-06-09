@@ -1,3 +1,7 @@
+package com.thoughtworks.iwp.commands;
+
+import com.thoughtworks.iwp.appliance.Television;
+
 public class TVOnCommand implements Command {
     Television tv;
 
