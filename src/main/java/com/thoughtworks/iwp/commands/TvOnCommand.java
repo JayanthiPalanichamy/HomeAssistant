@@ -2,10 +2,10 @@ package com.thoughtworks.iwp.commands;
 
 import com.thoughtworks.iwp.appliance.Television;
 
-public class TVOnCommand implements Command {
+public class TvOnCommand implements Command {
     private final Television tv;
 
-    public TVOnCommand(Television tv) {
+    public TvOnCommand(Television tv) {
         this.tv = tv;
     }
 

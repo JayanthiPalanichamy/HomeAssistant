@@ -25,7 +25,7 @@ public class HomeAssistantTest {
         fan = new Fan();
         ACOnCommand acOnCommand = new ACOnCommand(airConditioner);
         ACOffCommand acOffCommand = new ACOffCommand(airConditioner);
-        TVOnCommand tvOnCommand = new TVOnCommand(tv);
+        TvOnCommand tvOnCommand = new TvOnCommand(tv);
         TvOffCommand tvOffCommand = new TvOffCommand(tv);
         FanOnCommand fanOnCommand = new FanOnCommand(fan);
         FanOffCommand fanOffCommand = new FanOffCommand(fan);
