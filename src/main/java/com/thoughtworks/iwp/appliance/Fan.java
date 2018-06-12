@@ -5,8 +5,8 @@ public class Fan {
     private int speed;
 
     public Fan() {
-        this.onStatus = false;
-        this.speed = 1;
+        onStatus = false;
+        speed = 1;
     }
 
     public void turnOn() {

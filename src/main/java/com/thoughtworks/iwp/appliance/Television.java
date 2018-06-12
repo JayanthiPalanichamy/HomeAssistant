@@ -4,7 +4,7 @@ public class Television {
     private boolean onStatus;
 
     public Television() {
-        this.onStatus = false;
+        onStatus = false;
     }
 
     public boolean isOn() {
