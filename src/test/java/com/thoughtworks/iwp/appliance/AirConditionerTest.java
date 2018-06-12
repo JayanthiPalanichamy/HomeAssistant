@@ -7,7 +7,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class AirConditionerTest {
-    AirConditioner airConditioner;
+    private AirConditioner airConditioner;
 
     @Before
     public void setUp() {

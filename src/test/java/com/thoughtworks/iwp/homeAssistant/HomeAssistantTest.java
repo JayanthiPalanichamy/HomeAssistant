@@ -12,10 +12,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 public class HomeAssistantTest {
-    HomeAssistant homeAssistant;
-    AirConditioner airConditioner;
-    Television tv;
-    Fan fan;
+    private HomeAssistant homeAssistant;
+    private AirConditioner airConditioner;
+    private Television tv;
+    private Fan fan;
 
     @Before
     public void setUp() {

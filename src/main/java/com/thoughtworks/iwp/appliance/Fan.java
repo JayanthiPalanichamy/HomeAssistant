@@ -1,8 +1,8 @@
 package com.thoughtworks.iwp.appliance;
 
 public class Fan {
-    public static final int MAX_SPEED = 5;
-    public static final int MIN_SPEED = 1;
+    private static final int MAX_SPEED = 5;
+    private static final int MIN_SPEED = 1;
     private boolean onStatus;
     private int speed;
 

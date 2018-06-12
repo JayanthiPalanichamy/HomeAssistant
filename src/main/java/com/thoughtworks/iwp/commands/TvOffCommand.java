@@ -3,7 +3,7 @@ package com.thoughtworks.iwp.commands;
 import com.thoughtworks.iwp.appliance.Television;
 
 public class TvOffCommand implements Command {
-    Television tv;
+    private final Television tv;
 
     public TvOffCommand(Television tv) {
         this.tv = tv;
