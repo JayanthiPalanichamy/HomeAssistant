@@ -1,6 +1,8 @@
 package com.thoughtworks.iwp.appliance;
 
 public class Fan {
+    public static final int MAX_SPEED = 5;
+    public static final int MIN_SPEED = 1;
     private boolean onStatus;
     private int speed;
 
@@ -22,7 +24,7 @@ public class Fan {
     }
 
     public void increaseSpeed() {
-        if (speed < 5) speed++;
+        if (speed < MAX_SPEED) speed++;
     }
 
     public int getSpeed() {
@@ -30,6 +32,6 @@ public class Fan {
     }
 
     public void decreaseSpeed() {
-        if (speed > 1) speed--;
+        if (speed > MIN_SPEED) speed--;
     }
 }
