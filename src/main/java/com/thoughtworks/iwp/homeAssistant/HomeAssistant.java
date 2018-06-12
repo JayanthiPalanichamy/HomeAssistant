@@ -7,6 +7,7 @@ import java.util.Stack;
 
 public class HomeAssistant {
 
+    public static final String UNDO = "undo";
     private HashMap<String, Command> deviceInstructionMap;
     private Stack<String> lastExecutedInstructionStack;
 
@@ -16,7 +17,7 @@ public class HomeAssistant {
     }
 
     public void listen(String instruction) {
-        if ("undo".equals(instruction)) {
+        if (UNDO.equals(instruction)) {
             Command command = deviceInstructionMap.get(lastExecutedInstructionStack.pop());
             command.undo();
         } else {
